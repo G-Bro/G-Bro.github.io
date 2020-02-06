@@ -1,1 +1,27 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+      const cnv = document.getElementById('canvas');
+      const ctx = cnv.getContext('2d');
+      const start = Date.now();
+
+      function animate() {
+        const t = (Date.now() - start) / 500;
+
+        ctx.clearRect(0, 0, 200, 200);
+        ctx.fillStyle = 'black';
+        ctx.fillRect(95 + Math.cos(t) * 90, 95 + Math.sin(t) * 90, 10, 10);
+
+        window.requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
